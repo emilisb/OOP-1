@@ -40,13 +40,25 @@ string getWelcomeLine(string text) {
     return "* " + text + " *";
 }
 
+string getWelcomeWord(string name) {
+	if (name.back() == 's') {
+		return "Sveikas";
+	}
+	
+	return "Sveika";
+}
+
+string getWelcomeMessage(string name) {
+	return getWelcomeWord(name) + ", " + name + "!";
+}
+
 int main(int argc, const char * argv[]) {
     string name;
     
     cout << "Įveskite vardą: ";
     cin >> name;
     
-    const string welcomeText = "Sveikas, " + name + "!";
+    const string welcomeText = getWelcomeMessage(name);
     const int width = welcomeText.length() + 4;
     
     const string line1 = getBorder(width);
