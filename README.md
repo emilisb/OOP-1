@@ -41,7 +41,7 @@
 
 - Sveikinimo tekstas priklauso nuo vartotojo vardo lyties
 
-### [v0.1](https://github.com/emilisb/OOP-1/releases/tag/v0.2) - (2019-02-11)
+### [v0.1](https://github.com/emilisb/OOP-1/releases/tag/v0.1) - (2019-02-11)
 
 **Pridėta**
 

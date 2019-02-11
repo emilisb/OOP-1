@@ -67,8 +67,10 @@ string getWelcomeMessage(string name) {
 }
 
 int main(int argc, const char * argv[]) {
-	string name;
 	int padding = 0;
+	
+	string name;
+	string line;
 	
 	cout << "Įveskite vardą: ";
 	cin >> name;
@@ -82,8 +84,7 @@ int main(int argc, const char * argv[]) {
 	const int width = welcomeText.length() + 2 + padding * 2;
 	
 	// Horizontal border
-	string line = getBorder(width);
-	cout << line << endl;
+	cout << getBorder(width) << endl;
 	
 	// Vertical spacing
 	line = getVerticalBorder(width);
@@ -102,8 +103,7 @@ int main(int argc, const char * argv[]) {
 	}
 	
 	// Horizontal border
-	line = getBorder(width);
-	cout << line << endl;
+	cout << getBorder(width) << endl;
 	
 	return 0;
 }
