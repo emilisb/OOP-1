@@ -36,8 +36,22 @@ string getVerticalBorder(int width) {
     return border;
 }
 
-string getWelcomeLine(string text) {
-    return "* " + text + " *";
+string getWelcomeLine(string text, int padding) {
+	string line = "*";
+	
+	for (int i = 0; i < padding; i++) {
+		line += " ";
+	}
+	
+	line += text;
+	
+	for (int i = 0; i < padding; i++) {
+		line += " ";
+	}
+	
+	line += "*";
+	
+	return line;
 }
 
 string getWelcomeWord(string name) {
@@ -54,24 +68,42 @@ string getWelcomeMessage(string name) {
 
 int main(int argc, const char * argv[]) {
     string name;
+	int padding = 0;
     
     cout << "Įveskite vardą: ";
     cin >> name;
+	
+	do {
+		cout << endl << "Įveskite rėmelio dydį (nuo 1 iki 10): ";
+		cin >> padding;
+	} while (padding < 1 || padding > 10);
     
     const string welcomeText = getWelcomeMessage(name);
-    const int width = welcomeText.length() + 4;
-    
-    const string line1 = getBorder(width);
-    const string line2 = getVerticalBorder(width);
-    const string line3 = getWelcomeLine(welcomeText);
-    const string line4 = getVerticalBorder(width);
-    const string line5 = getBorder(width);
-    
-    cout << line1 << endl;
-    cout << line2 << endl;
-    cout << line3 << endl;
-    cout << line4 << endl;
-    cout << line5 << endl;
-    
+    const int width = welcomeText.length() + 2 + padding * 2;
+	
+	// Horizontal border
+	string line = getBorder(width);
+	cout << line << endl;
+	
+	// Vertical spacing
+	line = getVerticalBorder(width);
+	for (int i = 0; i < padding; i++) {
+		cout << line << endl;
+	}
+	
+	// Welcome line
+	line = getWelcomeLine(welcomeText, padding);
+	cout << line << endl;
+	
+	// Vertical spacing
+	line = getVerticalBorder(width);
+	for (int i = 0; i < padding; i++) {
+		cout << line << endl;
+	}
+	
+	// Horizontal border
+	line = getBorder(width);
+	cout << line << endl;
+	
     return 0;
 }
